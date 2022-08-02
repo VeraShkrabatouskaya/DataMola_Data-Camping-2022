@@ -26,9 +26,6 @@ CREATE TABLE FCT_business(
     CONSTRAINT "PK_T.FCT_business" PRIMARY KEY(Business_Fact_ID)
 )
 
-PARTITION BY RANGE (TIME_ID) INTERVAL (NUMTODSINTERVAL(1,'DAY'))
-subpartition by hash(CUSTOMER_ID) subpartitions 4
-
 PARTITION BY RANGE (TIME_ID)
     subpartition by hash(agency_ID) subpartitions 4
 (
