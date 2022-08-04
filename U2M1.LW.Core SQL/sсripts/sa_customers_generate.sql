@@ -1,8 +1,9 @@
 --GRANT UNLIMITED TABLESPACE TO VShkrabatovskaya;
+--GRANT CONNECT,RESOURCE TO sa_customers;
 --SELECT * from dba_data_files ;
 --select * from USER_tablespaces;
---alter session set current_schema=sa_customers;
---alter user sa_customers QUOTA UNLIMITED ON ts_sa_customers_data_01;
+alter session set current_schema=sa_customers;
+alter user sa_customers QUOTA UNLIMITED ON ts_sa_customers_data_01;
 --------------------------------
 --DROP TABLE sa_customer_data_c;
 CREATE TABLE SA_CUSTOMER_DATA_c
@@ -360,7 +361,7 @@ VALUES (
 )
 ; 
 --delete from sa_customer_data_a where agency_city in ('Chicago')
-select * from sa_customer_data_a;
+select AGENCY_COUNTRY from sa_customer_data_a;
 --------------------------------------------------------------------------------
 CREATE TABLE SA_CUSTOMER_DATA_pm
 (
@@ -382,6 +383,34 @@ select * from SA_CUSTOMER_DATA_pm;
 
 --delete from SA_CUSTOMER_DATA_pm where promotion_media_type in ('TV')
 --------------------------------------------------
+create table SA_CUSTOMER_DATA_total
+(
+TOTAL_ID NUMBER (10),
+TIME_ID DATE,
+CUSTOMER_NAME varchar2 (50),
+BRAND_NAME VARCHAR2(50),
+CUSTOMER_ADDRESS VARCHAR2(50),
+CUSTOMER_CITY VARCHAR2(30),
+CUSTOMER_COUNTRY VARCHAR2(30),
+CUSTOMER_EMAIL VARCHAR2(50),
+CUSTOMER_OFFICE_PHONE VARCHAR2(30),
+CUSTOMER_MOBILE_PHONE VARCHAR2(30),
+PRODUCT_NAME VARCHAR2(50),
+AGENCY_NAME VARCHAR2(50),
+AGENCY_CITY VARCHAR2(30),
+AGENCY_COUNTRY VARCHAR2(30),
+AGENCY_ADDRESS VARCHAR2(50),
+AGENCY_POSTCODE VARCHAR2(6),
+AGENCY_EMAIL VARCHAR2(30),
+AGENCY_OFFICE_PHONE VARCHAR2(30),
+AGENCY_MOBILE_PHONE VARCHAR2(30),
+AGENCY_FEE_PERCENT DECIMAL (10,2),
+AGENCY_VAT_PERCENT DECIMAL (10,2),
+PROMOTION_MEDIA_TYPE VARCHAR2(30)
+)
+TABLESPACE ts_sa_customers_data_01;
+
+INSERT INTO  SA_CUSTOMER_DATA_total
 with cte_customer_agency AS (
     select  sa_customer_data_c.*, sa_customer_data_p.*, sa_customer_data_a.*, SA_CUSTOMER_DATA_pm.*
     from  sa_customer_data_c, sa_customer_data_p, sa_customer_data_a, SA_CUSTOMER_DATA_pm
@@ -406,6 +435,12 @@ with cte_customer_agency AS (
       cte_customer_agency
     order by TOTAL_ID DESC)
 select * from SA_CUSTOMER_DATA;
+
+select * from SA_CUSTOMER_DATA_total
+order by 1;
+
+select DISTINCT (agency_city) from SA_CUSTOMER_DATA_total
+order by 1;
 
 with cte_customer_agency AS (
     select  sa_customer_data_c.*, sa_customer_data_p.*, sa_customer_data_a.*, SA_CUSTOMER_DATA_pm.*
@@ -543,4 +578,3 @@ select * from sa_customer_data_c2 t2;
 --drop TABLESPACE ts_sa_customers_data_01 INCLUDING CONTENTS AND DATAFILES CASCADE CONSTRAINTS;
 --select segment_name, segment_type from user_segments;
 --PURGE RECYCLEBIN;
---select segment_name, segment_type from user_segments;
