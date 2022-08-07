@@ -145,7 +145,7 @@ VALUES (
 'www.starcomww.com/contact',
 '1-212-468-3888',
 '1-212-468-3588',
-15,
+5,
 15
 )
 ;
@@ -160,7 +160,7 @@ VALUES (
 'www.starcomww.com/contact',
 '612-8666-8000',
 '612-8666-8010',
-10,
+1,
 25.8
 )
 ;
@@ -175,7 +175,7 @@ VALUES (
 'www.starcomww.com/contact',
 '33-1-58-74-08-68',
 '33-1-58-74-78-66',
-20,
+2,
 20
 )
 ;
@@ -190,7 +190,7 @@ VALUES (
 'www.starcomww.com/contact',
 '41-43-366-61-61',
 '41-43-366-66-66',
-20,
+2,
 7.7
 )
 ;
@@ -236,7 +236,7 @@ VALUES (
 'www.starcomww.com/contact',
 '49-211-5684962',
 '49-211-5684962',
-22,
+3,
 19
 )
 ;
@@ -281,7 +281,7 @@ VALUES (
 'www.starcomww.com/contact',
 '48-22-493-99-99',
 '48-22-493-09-99',
-18,
+8,
 23 
 )
 ; 
@@ -311,7 +311,7 @@ VALUES (
 'www.starcomww.com/contact',
 '39-02-66-798-1',
 '39-02-66-798-2',
-12,
+2,
 22 
 )
 ;
@@ -326,7 +326,7 @@ VALUES (
 'www.starcomww.com/contact',
 '971-0-4-367-6400',
 '971-0-4-367-6411',
-14,
+4,
 5
 )
 ; 
@@ -341,7 +341,7 @@ VALUES (
 'www.starcomww.com/contact',
 '7-495-969-2010',
 '7-495-969-2011',
-17,
+7,
 20
 )
 ; 
@@ -356,7 +356,7 @@ VALUES (
 'www.starcomww.com/contact',
 '44-204-577-43-17',
 '44-204-577-43-17',
-25,
+5,
 20
 )
 ; 
@@ -383,6 +383,7 @@ select * from SA_CUSTOMER_DATA_pm;
 
 --delete from SA_CUSTOMER_DATA_pm where promotion_media_type in ('TV')
 --------------------------------------------------
+--DROP TABLE SA_CUSTOMER_DATA_total;
 create table SA_CUSTOMER_DATA_total
 (
 TOTAL_ID NUMBER (10),
