@@ -575,6 +575,266 @@ select * from sa_customer_data_c2 t2;
 --Drop table sa_customer_data_c;
 --Drop table sa_customer_data_c2;
 --------------------------------------------------------------------------------
+--DROP TABLE SA_CUSTOMER_DATA_pr;
+CREATE TABLE SA_CUSTOMER_DATA_pr
+(
+    product_ID            Number (10),
+    brand_name            VARCHAR2(50),
+    product_name               VARCHAR2(50),
+    category_name         VARCHAR2(50),
+    subcategory_name            VARCHAR2(50)
+)
+TABLESPACE ts_sa_customers_data_01;
+
+INSERT INTO SA_CUSTOMER_DATA_pr (
+    product_ID,
+    brand_name,
+    product_name, 
+    category_name,
+    subcategory_name
+    )
+VALUES (
+1,
+'SAMSUNG',
+'Refrigerators',
+'Appliances',
+'Fridge'
+);
+
+INSERT INTO SA_CUSTOMER_DATA_pr (
+    product_ID,
+    brand_name,
+    product_name, 
+    category_name,
+    subcategory_name
+    )
+VALUES (
+2,
+'SAMSUNG',
+'Ovens',
+'Appliances',
+'Conventional ovens'
+);
+
+INSERT INTO SA_CUSTOMER_DATA_pr (
+    product_ID,
+    brand_name,
+    product_name, 
+    category_name,
+    subcategory_name
+    )
+VALUES (
+3,
+'SAMSUNG',
+'Cooking ovens',
+'Appliances',
+'Electric cooktop'
+);
+
+INSERT INTO SA_CUSTOMER_DATA_pr (
+    product_ID,
+    brand_name,
+    product_name, 
+    category_name,
+    subcategory_name
+    )
+VALUES (
+4,
+'SAMSUNG',
+'Washing machines',
+'Appliances',
+'Fully Automatic washing machine'
+);
+
+INSERT INTO SA_CUSTOMER_DATA_pr (
+    product_ID,
+    brand_name,
+    product_name, 
+    category_name,
+    subcategory_name
+    )
+VALUES (
+5,
+'SAMSUNG',
+'Dishwashers',
+'Appliances',
+'Built-in Dishwasher'
+);
+
+INSERT INTO SA_CUSTOMER_DATA_pr (
+    product_ID,
+    brand_name,
+    product_name, 
+    category_name,
+    subcategory_name
+    )
+VALUES (
+6,
+'SAMSUNG',
+'Microwave ovens',
+'Appliances',
+'Convection Microwave'
+);
+
+INSERT INTO SA_CUSTOMER_DATA_pr (
+    product_ID,
+    brand_name,
+    product_name, 
+    category_name,
+    subcategory_name
+    )
+VALUES (
+7,
+'SAMSUNG',
+'Vacuum Cleaners',
+'Appliances',
+'Robotic vacuum cleaner'
+);
+
+INSERT INTO SA_CUSTOMER_DATA_pr (
+    product_ID,
+    brand_name,
+    product_name, 
+    category_name,
+    subcategory_name
+    )
+VALUES (
+8,
+'SAMSUNG',
+'Smart watches',
+'Computerized wristwatch',
+'Smart watch for kids?'
+);
+
+INSERT INTO SA_CUSTOMER_DATA_pr (
+    product_ID,
+    brand_name,
+    product_name, 
+    category_name,
+    subcategory_name
+    )
+VALUES (
+9,
+'SAMSUNG',
+'TVs',
+'Appliances',
+'OLED'
+);
+
+INSERT INTO SA_CUSTOMER_DATA_pr (
+    product_ID, 
+    brand_name,
+    product_name, 
+    category_name,
+    subcategory_name
+    )
+VALUES (
+10,
+'SAMSUNG',
+'Smartphones',
+'Phones',
+'Android Phones'
+);
+
+INSERT INTO SA_CUSTOMER_DATA_pr (
+    product_ID,
+    brand_name,
+    product_name, 
+    category_name,
+    subcategory_name
+    )
+VALUES (
+11,
+'SAMSUNG',
+'Headphones',
+'Accessories',
+'Earbuds'
+);
+
+INSERT INTO SA_CUSTOMER_DATA_pr (
+    product_ID,
+    brand_name,
+    product_name, 
+    category_name,
+    subcategory_name
+    )
+VALUES (
+12,
+'SAMSUNG',
+'Tablets',
+'Tablet computer',
+'Galaxy Tab series?'
+);
+
+INSERT INTO SA_CUSTOMER_DATA_pr (
+    product_ID,
+    brand_name,
+    product_name, 
+    category_name,
+    subcategory_name
+    )
+VALUES (
+16,
+'VISA',
+'Sponsorship',
+'Services',
+'Networking sponsor'
+);
+
+INSERT INTO SA_CUSTOMER_DATA_pr (
+    product_ID,
+    brand_name,
+    product_name, 
+    category_name,
+    subcategory_name
+    )
+VALUES (
+13,
+'VISA',
+'Card',
+'Services',
+'Contactless smart card'
+);
+
+INSERT INTO SA_CUSTOMER_DATA_pr (
+    product_ID,
+    brand_name,
+    product_name, 
+    category_name,
+    subcategory_name
+    )
+VALUES (
+14,
+'VISA',
+'Benefit',
+'Services',
+'Retirement Savings'
+);
+
+INSERT INTO SA_CUSTOMER_DATA_pr (
+    product_ID,
+    brand_name,
+    product_name, 
+    category_name,
+    subcategory_name
+    )
+VALUES (
+15,
+'VISA',
+'Service',
+'Services',
+'Internet banks'
+);
+
+select * from sa_customer_data_pr;
+--delete from sa_customer_data_pr where product_name = 'Dishwasher'
+
+select * from SA_CUSTOMER_DATA_total
+order by 1;
+
+select * from SA_CUSTOMER_DATA_total left outer join sa_customer_data_pr on SA_CUSTOMER_DATA_total.product_name=sa_customer_data_pr.product_name
+order by 1;
+--------------------------------------------------------------------------------
 
 --drop TABLESPACE ts_sa_customers_data_01 INCLUDING CONTENTS AND DATAFILES CASCADE CONSTRAINTS;
 --select segment_name, segment_type from user_segments;

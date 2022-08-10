@@ -5,9 +5,9 @@ alter session set current_schema=sa_promotions;
 alter user sa_promotions QUOTA UNLIMITED ON ts_sa_promotions_data_01;
 
 alter session set current_schema=sa_customers;
-GRANT SELECT ON SA_CUSTOMER_DATA  TO SA_PROMOTION_DATA;
+GRANT SELECT ON SA_CUSTOMER_DATA_total TO sa_promotions;
 alter session set current_schema = sa_employees;
-GRANT SELECT ON SA_EMPLOYEE_DATA  TO SA_PROMOTION_DATA;
+GRANT SELECT ON SA_EMPLOYEE_DATA  TO sa_promotions;
 
 select * from sa_customers.SA_CUSTOMER_DATA_total
 order by 1;
