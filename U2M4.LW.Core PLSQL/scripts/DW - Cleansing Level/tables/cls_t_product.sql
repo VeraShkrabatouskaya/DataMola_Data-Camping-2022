@@ -9,3 +9,5 @@ Create table cls_t_product (
     category_name        VARCHAR2(50) NOT NULL,
     subcategory_name     VARCHAR2(50) NOT NULL
 );
+
+select * from DW_CL.cls_t_product;

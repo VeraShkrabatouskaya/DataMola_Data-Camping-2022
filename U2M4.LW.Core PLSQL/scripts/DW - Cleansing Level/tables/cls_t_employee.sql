@@ -14,3 +14,6 @@ Create table cls_t_employee (
     employee_date_of_hire            DATE NOT NULL,
     employee_date_end_of_contract    DATE NOT NULL
 );
+
+
+select * from cls_t_employee;

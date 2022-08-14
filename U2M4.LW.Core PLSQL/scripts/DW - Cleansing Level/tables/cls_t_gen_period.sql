@@ -8,3 +8,5 @@ Create table cls_t_DIM_gen_period (
     promotion_start            Date,
     promotion_end              Date
 );
+
+select * from cls_t_DIM_gen_period;

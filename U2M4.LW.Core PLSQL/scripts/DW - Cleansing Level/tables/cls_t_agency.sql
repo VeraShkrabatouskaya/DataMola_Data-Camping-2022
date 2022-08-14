@@ -16,3 +16,6 @@ Create table cls_t_agency (
     agency_Fee_percent     DECIMAL (10,2),
     agency_VAT_percent     DECIMAL (10,2)
 );
+
+select * from cls_t_agency;
+select count(*) from cls_t_agency;
