@@ -26,15 +26,15 @@ AS
            product_ID CURSOR_NUMBER;
            promotion_ID CURSOR_NUMBER;           
            Business_Fact_ID CURSOR_NUMBER;
-           gross_profit_dollar_amount CURSOR_NUMBER;            
-           net_profit_dollar_amount CURSOR_NUMBER;             
-           gross_revenue_dollar_amount CURSOR_NUMBER;         
-           net_revenue_dollar_amount CURSOR_NUMBER;           
-           gross_cost_dollar_amount CURSOR_NUMBER;             
-           net_cost_dollar_amount CURSOR_NUMBER;                
-           gross_salary_employee_dollar_amount CURSOR_NUMBER;    
-           net_salary_employee_dollar_amount CURSOR_NUMBER;     
-           gross_profit_margin_percent CURSOR_NUMBER;   
+           gross_profit_dollar_amount CURSOR_DECIMAL;            
+           net_profit_dollar_amount CURSOR_DECIMAL;             
+           gross_revenue_dollar_amount CURSOR_DECIMAL;         
+           net_revenue_dollar_amount CURSOR_DECIMAL;           
+           gross_cost_dollar_amount CURSOR_DECIMAL;             
+           net_cost_dollar_amount CURSOR_DECIMAL;                
+           gross_salary_employee_dollar_amount CURSOR_DECIMAL;    
+           net_salary_employee_dollar_amount CURSOR_DECIMAL;     
+           gross_profit_margin_percent CURSOR_DECIMAL;   
 
             BEGIN
                    OPEN ALL_INF FOR
