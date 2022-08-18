@@ -12,6 +12,7 @@ CREATE TABLE DW_DATA.DIM_employee(
     employee_mobile_phone           VARCHAR2(30),
     employee_date_of_hire           DATE,
     employee_date_end_of_contract   DATE,
+    current_flg                     VARCHAR2(1),
     CONSTRAINT "PK_T.DIM_employee" PRIMARY KEY(employee_ID) 
 );
 

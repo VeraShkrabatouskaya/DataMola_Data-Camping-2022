@@ -1,5 +1,5 @@
 alter session set current_schema = DW_DATA;
-drop table FCT_business CASCADE CONSTRAINTS;
+--drop table FCT_business CASCADE CONSTRAINTS;
 
 CREATE TABLE FCT_business(
     Business_Fact_ID NUMBER(10),   
@@ -70,8 +70,19 @@ ALTER TABLE FCT_business
    ADD CONSTRAINT "FK_FCT_business_DIM_promotion" FOREIGN KEY (promotion_ID)REFERENCES dim_promotion (promotion_ID);
    
 
-select * from FCT_business;
+select * from FCT_business order by 1;
 
 select * from FCT_business where promotion_id=219504;
 select count(*) from FCT_business;
+
+SELECT * FROM ALL_TAB_PARTITIONS;
+SELECT * FROM ALL_PART_TABLES WHERE TABLE_NAME = 'FCT_BUSINESS';
+
+select num_rows, PARTITION_NAME , SUBPARTITION_NAME 
+FROM ALL_TAB_SUBPARTITIONS;
+
+SELECT * FROM FCT_business partition (QUARTER_1);
+SELECT * FROM FCT_business partition (QUARTER_2);
+SELECT * FROM FCT_business partition (QUARTER_3);
+SELECT * FROM FCT_business partition (QUARTER_4);   
    
