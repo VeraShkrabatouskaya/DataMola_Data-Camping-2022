@@ -42,7 +42,8 @@ AS
                         ,employee_office_phone            
                         ,employee_mobile_phone           
                         ,employee_date_of_hire           
-                        ,employee_date_end_of_contract    
+                        ,employee_date_end_of_contract
+                        ,current_flg
                         ,promotion_metric_amount        
                         ,promotion_price                  
                         ,promotion_KPI                  
@@ -93,7 +94,8 @@ AS
                          AND employee_office_phone  IS NOT NULL           
                          AND employee_mobile_phone  IS NOT NULL          
                          AND employee_date_of_hire  IS NOT NULL          
-                         AND employee_date_end_of_contract IS NOT NULL    
+                         AND employee_date_end_of_contract IS NOT NULL
+                         AND current_flg IS NOT NULL
                          AND promotion_metric_amount  IS NOT NULL       
                          AND promotion_price  IS NOT NULL                 
                          AND promotion_KPI  IS NOT NULL                 
@@ -149,7 +151,8 @@ AS
                         ,employee_office_phone            
                         ,employee_mobile_phone           
                         ,employee_date_of_hire           
-                        ,employee_date_end_of_contract    
+                        ,employee_date_end_of_contract
+                        ,current_flg
                         ,promotion_metric_amount        
                         ,promotion_price                  
                         ,promotion_KPI                  
@@ -201,7 +204,8 @@ AS
                         , i.employee_office_phone            
                         , i.employee_mobile_phone           
                         , i.employee_date_of_hire           
-                        , i.employee_date_end_of_contract    
+                        , i.employee_date_end_of_contract
+                        , i.current_flg
                         , i.promotion_metric_amount        
                         , i.promotion_price                  
                         , i.promotion_KPI                  

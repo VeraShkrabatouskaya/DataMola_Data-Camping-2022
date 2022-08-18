@@ -1,4 +1,9 @@
 alter session set current_schema = DW_CL;
+--DROP PACKAGE pkg_etl_cls_employee
+
+alter session set current_schema=sa_employees;
+GRANT SELECT ON SA_EMPLOYEE_DATA_TOTAL  TO DW_CL;
+alter session set current_schema = DW_CL;
 
 CREATE OR REPLACE PACKAGE body pkg_etl_cls_employee
 AS  
@@ -6,7 +11,7 @@ AS
    AS
       CURSOR cursor_cls_employee
       IS
-         SELECT DISTINCT employee_passport_ID, employee_first_name, employee_last_name, employee_position, employee_email, employee_office_phone, employee_mobile_phone, employee_date_of_hire, employee_date_end_of_contract           FROM sa_employees.SA_EMPLOYEE_DATA_TOTAL
+         SELECT DISTINCT employee_passport_ID, employee_first_name, employee_last_name, employee_position, employee_email, employee_office_phone, employee_mobile_phone, employee_date_of_hire, employee_date_end_of_contract, current_flg FROM sa_employees.SA_EMPLOYEE_DATA_TOTAL
            WHERE employee_passport_ID IS NOT NULL 
                  AND employee_first_name IS NOT NULL
                  AND employee_last_name IS NOT NULL
@@ -16,6 +21,7 @@ AS
                  AND employee_mobile_phone IS NOT NULL
                  AND employee_date_of_hire IS NOT NULL
                  AND employee_date_end_of_contract IS NOT NULL
+                 AND current_flg IS NOT NULL
                  ;
   
    BEGIN
@@ -30,7 +36,8 @@ AS
                 employee_office_phone,
                 employee_mobile_phone,
                 employee_date_of_hire,
-                employee_date_end_of_contract)
+                employee_date_end_of_contract,
+                current_flg)
               VALUES ( 
                 i.employee_passport_ID,
                 i.employee_first_name,
@@ -40,7 +47,8 @@ AS
                 i.employee_office_phone,
                 i.employee_mobile_phone,
                 i.employee_date_of_hire,
-                i.employee_date_end_of_contract);
+                i.employee_date_end_of_contract,
+                i.current_flg);
          EXIT WHEN cursor_cls_employee%NOTFOUND;
       END LOOP;
 
