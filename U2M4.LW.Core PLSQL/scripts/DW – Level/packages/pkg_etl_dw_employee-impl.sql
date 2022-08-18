@@ -26,6 +26,7 @@ AS
            employee_mobile_phone CURSOR_VARCHAR;
            employee_date_of_hire CURSOR_DATE;
            employee_date_end_of_contract CURSOR_DATE;
+           current_flg CURSOR_VARCHAR;
            
            employee_passport_ID_stage CURSOR_VARCHAR;
            employee_position_stage CURSOR_VARCHAR;
@@ -43,6 +44,7 @@ AS
                             source_CL.employee_mobile_phone AS  employee_mobile_phone_source_CL,
                             source_CL.employee_date_of_hire AS  employee_date_of_hire_source_CL,
                             source_CL.employee_date_end_of_contract AS  employee_date_end_of_contract_source_CL,
+                            source_CL.current_flg AS  current_flg_source_CL,
                             
                             stage.employee_passport_ID AS employee_passport_ID_stage,
                             stage.employee_position AS employee_position_stage,
@@ -61,6 +63,7 @@ AS
                                 employee_mobile_phone,
                                 employee_date_of_hire,
                                 employee_date_end_of_contract,
+                                current_flg,
                                 
                                 employee_passport_ID_stage,
                                 employee_position_stage,
@@ -80,7 +83,8 @@ FOR i IN employee_ID.FIRST .. employee_ID.LAST LOOP
                                             employee_office_phone,
                                             employee_mobile_phone,
                                             employee_date_of_hire,
-                                            employee_date_end_of_contract)
+                                            employee_date_end_of_contract,
+                                            current_flg)
                VALUES ( SQ_DIM_employee.NEXTVAL,
                                             employee_passport_ID(i),
                                             employee_first_name(i),
@@ -90,7 +94,8 @@ FOR i IN employee_ID.FIRST .. employee_ID.LAST LOOP
                                             employee_office_phone(i),
                                             employee_mobile_phone(i),
                                             employee_date_of_hire(i),
-                                            employee_date_end_of_contract(i)                                          
+                                            employee_date_end_of_contract(i),
+                                            current_flg (i)
                         );
           COMMIT;
           
@@ -104,7 +109,8 @@ FOR i IN employee_ID.FIRST .. employee_ID.LAST LOOP
             employee_office_phone = employee_office_phone(i),
             employee_mobile_phone = employee_mobile_phone(i),
             employee_date_of_hire = employee_date_of_hire(i),
-            employee_date_end_of_contract = employee_date_end_of_contract(i)
+            employee_date_end_of_contract = employee_date_end_of_contract(i),
+            current_flg = current_flg (i)
          WHERE employee_ID = employee_ID(i);
 	
 	         COMMIT;
