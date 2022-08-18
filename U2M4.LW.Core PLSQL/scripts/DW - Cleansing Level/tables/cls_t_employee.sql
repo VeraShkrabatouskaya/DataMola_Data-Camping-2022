@@ -12,7 +12,8 @@ Create table cls_t_employee (
     employee_office_phone            VARCHAR2(30) NOT NULL,
     employee_mobile_phone            VARCHAR2(30) NOT NULL,
     employee_date_of_hire            DATE NOT NULL,
-    employee_date_end_of_contract    DATE NOT NULL
+    employee_date_end_of_contract    DATE NOT NULL,
+    current_flg                      VARCHAR2(1) NOT NULL
 );
 
 

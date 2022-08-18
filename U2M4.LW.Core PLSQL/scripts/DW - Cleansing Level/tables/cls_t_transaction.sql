@@ -39,6 +39,7 @@ Create table cls_t_transaction (
     employee_mobile_phone            VARCHAR2(30) NOT NULL,
     employee_date_of_hire            DATE NOT NULL,
     employee_date_end_of_contract    DATE NOT NULL,
+    current_flg                      VARCHAR2(1) NOT NULL,
     promotion_metric_amount          DECIMAL (10,2) NOT NULL,
     promotion_price                  DECIMAL (10,2) NOT NULL,
     promotion_KPI                    VARCHAR2(30) NOT NULL,
@@ -57,6 +58,5 @@ Create table cls_t_transaction (
     gross_profit_margin_percent         DECIMAL (10,2) NOT NULL
 );
 
-alter session set current_schema=DW_DATA;
 select * from DW_CL.cls_t_transaction;
 select * from DW_CL.cls_t_transaction where promotion_name = '68251 SAMSUNG_Headphones_production';
