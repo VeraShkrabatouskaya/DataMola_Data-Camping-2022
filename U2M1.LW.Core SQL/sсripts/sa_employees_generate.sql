@@ -4,6 +4,9 @@
 alter session set current_schema=sa_employees;
 alter user sa_employees QUOTA UNLIMITED ON ts_sa_employees_data_01;
 
+alter session set current_schema=sa_employees;
+GRANT SELECT ON SA_EMPLOYEE_DATA_TOTAL  TO DW_CL;
+
 alter session set current_schema=sa_customers;
 GRANT SELECT ON SA_CUSTOMER_DATA  TO SA_EMPLOYEE_DATA;
 alter session set current_schema = sa_employees;
@@ -224,6 +227,50 @@ ORDER BY 1;
 SELECT count(*)  
 FROM SA_EMPLOYEE_DATA
 ORDER BY 1;
+
+alter session set current_schema=sa_employees;
+
+with cte_emp AS (
+select distinct employee_first_name, employee_last_name
+from SA_EMPLOYEE_DATA
+order by 2)
+select count (*) from cte_emp;
+
+--drop table unique_employee; 
+create table unique_emp AS 
+select distinct employee_first_name, employee_last_name
+from SA_EMPLOYEE_DATA
+order by 2;
+
+--DROP TABLE unique_emp_total
+create table unique_emp_total AS
+select 
+TRUNC(DBMS_RANDOM.VALUE(100000000,999999999)) as employee_passport_ID,
+unique_emp.*, 
+CONCAT(CONCAT (CONCAT(employee_first_name, '.'), employee_last_name), '@gmail.com') AS employee_email,
+CONCAT(CONCAT(CONCAT (CONCAT(TRUNC(DBMS_RANDOM.VALUE(100,999)), '-'), TRUNC(DBMS_RANDOM.VALUE(100,999))),'-'), TRUNC(DBMS_RANDOM.VALUE(100,999))) AS employee_office_phone,
+CONCAT(CONCAT(CONCAT (CONCAT(TRUNC(DBMS_RANDOM.VALUE(100,999)), '-'), TRUNC(DBMS_RANDOM.VALUE(100,999))),'-'), TRUNC(DBMS_RANDOM.VALUE(100,999))) AS employee_mobile_phone,
+TO_DATE(TRUNC(DBMS_RANDOM.VALUE(
+            TO_CHAR(TO_DATE('01-01-2019','dd-mm-yyyy'),'J'),
+             TO_CHAR(TO_DATE('01-01-2021','dd-mm-yyyy'),'J'))),'J') as employee_date_of_hire,
+TO_DATE(TRUNC(DBMS_RANDOM.VALUE(
+            TO_CHAR(TO_DATE('01-09-2022','dd-mm-yyyy'),'J'),
+             TO_CHAR(TO_DATE('01-01-2024','dd-mm-yyyy'),'J'))),'J') as employee_date_end_of_contract,
+'Y' as current_flg
+from unique_emp
+order by 3;
+
+select count(*) from unique_emp_total;
+
+--DROP table SA_EMPLOYEE_DATA_TOTAL; 
+Create table SA_EMPLOYEE_DATA_TOTAL AS
+SELECT SA_EMPLOYEE_DATA.employee_ID, SA_EMPLOYEE_DATA.employee_first_name, SA_EMPLOYEE_DATA.employee_last_name, SA_EMPLOYEE_DATA.employee_position, SA_EMPLOYEE_DATA.employee_salary_project, 
+unique_emp_total.employee_passport_ID, unique_emp_total.employee_email, unique_emp_total.employee_office_phone, unique_emp_total.employee_mobile_phone, unique_emp_total.employee_date_of_hire, unique_emp_total.employee_date_end_of_contract,unique_emp_total.current_flg 
+FROM SA_EMPLOYEE_DATA left outer join unique_emp_total on SA_EMPLOYEE_DATA.employee_first_name=unique_emp_total.employee_first_name and SA_EMPLOYEE_DATA.employee_last_name = unique_emp_total.employee_last_name
+ORDER BY 1;
+
+select * from SA_EMPLOYEE_DATA_TOTAL;
+select count(*) from SA_EMPLOYEE_DATA_TOTAL;
 
 --drop TABLESPACE ts_sa_customers_data_01 INCLUDING CONTENTS AND DATAFILES CASCADE CONSTRAINTS;
 --select segment_name, segment_type from user_segments;

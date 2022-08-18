@@ -4,6 +4,9 @@
 alter session set current_schema=sa_promotions;
 alter user sa_promotions QUOTA UNLIMITED ON ts_sa_promotions_data_01;
 
+alter session set current_schema=sa_promotions;
+GRANT SELECT ON SA_PROMOTION_DATA_TOTAL TO DW_CL;
+
 alter session set current_schema=sa_customers;
 GRANT SELECT ON SA_CUSTOMER_DATA_total TO sa_promotions;
 alter session set current_schema = sa_employees;
@@ -100,6 +103,27 @@ ORDER BY 1;
 SELECT count(*)  
 FROM SA_PROMOTION_DATA
 ORDER BY 1;
+
+--DROP table SA_PROMOTION_DATA_with_department;
+Create table SA_PROMOTION_DATA_with_department AS
+select * from sa_customers.SA_CUSTOMER_DATA_with_department
+left outer join sa_employees.SA_EMPLOYEE_DATA
+on sa_customers.SA_CUSTOMER_DATA_with_department.TOTAL_ID = sa_employees.SA_EMPLOYEE_DATA.EMPLOYEE_ID
+left outer join sa_promotions.SA_PROMOTION_DATA
+on sa_customers.SA_CUSTOMER_DATA_with_department.TOTAL_ID = sa_promotions.SA_PROMOTION_DATA.PROMOTION_ID
+order by 1;
+
+--Drop table SA_PROMOTION_DATA_TOTAL;
+Create table  SA_PROMOTION_DATA_TOTAL AS
+select SA_PROMOTION_DATA_with_department.*,
+promotion_ID||' '||brand_name||'_'||product_name||'_'||promotion_media_type AS promotion_name,
+TIME_ID AS promotion_start,
+TIME_ID+TRUNC(DBMS_RANDOM.VALUE(7,93)) AS promotion_end
+from SA_PROMOTION_DATA_with_department
+order by 1,promotion_name;
+
+select * from SA_PROMOTION_DATA_TOTAL;
+select count(*) from SA_PROMOTION_DATA_TOTAL;
 
 --drop TABLESPACE ts_sa_customers_data_01 INCLUDING CONTENTS AND DATAFILES CASCADE CONSTRAINTS;
 --select segment_name, segment_type from user_segments;

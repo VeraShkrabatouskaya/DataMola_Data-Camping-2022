@@ -4,6 +4,12 @@
 --select * from USER_tablespaces;
 alter session set current_schema=sa_customers;
 alter user sa_customers QUOTA UNLIMITED ON ts_sa_customers_data_01;
+
+--alter session set current_schema=sa_customers;
+--GRANT SELECT ON SA_CUSTOMER_DATA_total TO DW_CL;
+
+alter session set current_schema=sa_customers;
+GRANT SELECT ON SA_CUSTOMER_DATA_with_department TO DW_CL;
 --------------------------------
 --DROP TABLE sa_customer_data_c;
 CREATE TABLE SA_CUSTOMER_DATA_c
@@ -718,7 +724,7 @@ VALUES (
 'SAMSUNG',
 'TVs',
 'Appliances',
-'OLED'
+'QLED'
 );
 
 INSERT INTO SA_CUSTOMER_DATA_pr (
@@ -834,6 +840,28 @@ order by 1;
 
 select * from SA_CUSTOMER_DATA_total left outer join sa_customer_data_pr on SA_CUSTOMER_DATA_total.product_name=sa_customer_data_pr.product_name
 order by 1;
+
+--DROP TABLE SA_CUSTOMER_DATA_with_department;
+CREATE TABLE SA_CUSTOMER_DATA_with_department AS
+select 
+SA_CUSTOMER_DATA_total.*, 
+sa_customer_data_pr.category_name, sa_customer_data_pr.subcategory_name,
+    CASE WHEN promotion_media_type = 'TV' THEN 'Media Planning and Buying'
+         WHEN promotion_media_type = 'digital' THEN 'Media Planning and Buying'
+         WHEN promotion_media_type = 'press' THEN 'Media Planning and Buying'
+         WHEN promotion_media_type = 'radio' THEN 'Media Planning and Buying'
+         WHEN promotion_media_type = 'OOH' THEN 'Out-of-Home Media'
+         WHEN promotion_media_type = 'design' THEN 'Art and Visualization'
+         WHEN promotion_media_type = 'production' THEN 'Production'
+    END AS department_name
+FROM SA_CUSTOMER_DATA_total left outer join sa_customer_data_pr on SA_CUSTOMER_DATA_total.product_name=sa_customer_data_pr.product_name
+ORDER BY 1;
+
+select distinct department_name from SA_CUSTOMER_DATA_with_department;
+
+select * from SA_CUSTOMER_DATA_with_department;
+select count(*) from SA_CUSTOMER_DATA_with_department;
+    
 --------------------------------------------------------------------------------
 
 --drop TABLESPACE ts_sa_customers_data_01 INCLUDING CONTENTS AND DATAFILES CASCADE CONSTRAINTS;
