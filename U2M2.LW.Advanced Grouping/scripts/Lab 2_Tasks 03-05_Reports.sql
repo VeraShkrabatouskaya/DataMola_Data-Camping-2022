@@ -173,34 +173,44 @@ order by TRUNC (TIME_ID, 'DD'), agency_name, agency_country, agency_city;
 --monthly  reports •	USE: CUBE Extension
 --------------------------------------------------------------------------------
 select 
-    TIME_ID,
+    TRUNC (TIME_ID, 'MM') AS MONTH,
     agency_city,
     employee_first_name,
     employee_last_name,    
     SUM (ROUND(employee_salary_project*(1+ agency_VAT_percent/100),2)) as employee_salary_project_GROSS,
     SUM (employee_salary_project) as employee_salary_project_NET
 from SA_TRANSACTION
-GROUP BY CUBE (TIME_ID, agency_city, employee_first_name, employee_last_name)
-    HAVING TIME_ID IS NOT NULL 
+GROUP BY CUBE (TRUNC (TIME_ID, 'MM'), agency_city, employee_first_name, employee_last_name)
+    HAVING TRUNC (TIME_ID, 'MM') IS NOT NULL 
     and agency_city IS NOT NULL
     and employee_first_name IS NOT NULL
     and employee_last_name IS NOT NULL
-order by TIME_ID, agency_city, employee_first_name, employee_last_name;
+order by TRUNC (TIME_ID, 'MM'), agency_city, employee_first_name, employee_last_name;
+--------------------------------------------------------------------------------
+select 
+    TRUNC (TIME_ID, 'MM') AS MONTH,
+    SUM (ROUND(employee_salary_project*(1+ agency_VAT_percent/100),2)) as employee_salary_project_GROSS,
+    SUM (employee_salary_project) as employee_salary_project_NET
+from SA_TRANSACTION
+GROUP BY CUBE (TRUNC (TIME_ID, 'MM'))
+    HAVING TRUNC (TIME_ID, 'MM') IS NOT NULL 
+order by TRUNC (TIME_ID, 'MM');
+
 --------------------------------------------------------------------------------
 
 select 
-    TIME_ID,
+    TRUNC (TIME_ID, 'MM') AS MONTH,
     brand_name,
     agency_city,
     promotion_media_type,
     COUNT (promotion_ID) as number_of_promotions
 from SA_TRANSACTION
-GROUP BY CUBE (TIME_ID, brand_name,  agency_city, promotion_media_type)
-    HAVING TIME_ID IS NOT NULL 
+GROUP BY CUBE (TRUNC (TIME_ID, 'MM'), brand_name,  agency_city, promotion_media_type)
+    HAVING TRUNC (TIME_ID, 'MM') IS NOT NULL 
     and brand_name IS NOT NULL
     and agency_city IS NOT NULL
     and promotion_media_type IS NOT NULL
-order by TIME_ID, brand_name,  agency_city, promotion_media_type;
+order by TRUNC (TIME_ID, 'MM'), brand_name,  agency_city, promotion_media_type;
 --------------------------------------------------------------------------------
 select 
     TIME_ID,
