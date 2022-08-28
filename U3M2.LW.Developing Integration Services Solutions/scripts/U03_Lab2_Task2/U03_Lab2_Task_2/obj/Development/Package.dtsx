@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/26/2022 12:09:15 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VERA"
+  DTS:CreatorName="VERA\Vera"
+  DTS:DTSID="{EF9CEAD5-A9D5-4518-994C-ED606FEC9F95}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.694.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionGUID="{C79D0EAA-3F58-4D67-B8FA-865D37C09B5E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables />
+</DTS:Executable>
