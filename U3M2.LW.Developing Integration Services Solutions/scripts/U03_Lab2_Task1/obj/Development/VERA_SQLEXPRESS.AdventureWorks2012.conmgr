@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="VERA_SQLEXPRESS.AdventureWorks2012"
+  DTS:DTSID="{39771EE4-F289-4F9C-9534-76E1D2438CA5}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=VERA\SQLEXPRESS;Initial Catalog=AdventureWorks2012;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-U03_Lab2_Task1-2-{39771EE4-F289-4F9C-9534-76E1D2438CA5}VERA\SQLEXPRESS.AdventureWorks2012;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
