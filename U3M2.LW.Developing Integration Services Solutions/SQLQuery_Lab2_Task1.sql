@@ -1,0 +1,1 @@
+select* from [AdventureWorks2012].Production.Product
