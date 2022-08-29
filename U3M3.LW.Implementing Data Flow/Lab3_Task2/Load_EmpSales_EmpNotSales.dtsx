@@ -1,0 +1,1971 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/29/2022 10:22:20 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VERA"
+  DTS:CreatorName="VERA\Vera"
+  DTS:DTSID="{FA5A19AE-40D4-4B3B-811E-04045EB829E2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.694.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Load_EmpSales_EmpNotSales"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{503B6850-979C-400A-8E6D-303E2E7AAEF5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{42C308B8-285C-4109-B6C2-F7BED86E197A}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Vera\!Datamola_2022\Labs\U3.SQL Server Integration Services (SSIS)\Lab3\EmpSales.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{C9369576-CC42-4E46-B4DF-EF893F57F52A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{93B7ED92-73B6-4562-9062-6B3D9F97B35D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmailAddress"
+              DTS:DTSID="{82ADCE86-0454-4EC9-B91D-8CE37481FB45}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{5CADE932-8E22-43C6-BD05-F1A8442F97BB}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Vera\!Datamola_2022\Labs\U3.SQL Server Integration Services (SSIS)\Lab3\EmpNotSales.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{6C9A0BCA-9BC5-4F5A-9AEB-64DAF04AA121}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{226648C6-EF1F-4C27-A044-2B5E6B95F039}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmailAddress"
+              DTS:DTSID="{CE28A28B-5134-453E-90F6-2C16E8224C3D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[VERA\SQLEXPRESS.HumanResources]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5769843A-E539-4250-AA7C-43477FA02143}"
+      DTS:ObjectName="VERA\SQLEXPRESS.HumanResources">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=VERA\SQLEXPRESS;Initial Catalog=HumanResources;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Load_EmpSales_EmpNotSales-{5769843A-E539-4250-AA7C-43477FA02143}VERA\SQLEXPRESS.HumanResources;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7074E35C-A281-4657-A466-8515F4C006FD}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task_Load_EmpSales_EmpNotSales"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split.Inputs[Conditional Split Input].Columns[JobTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="JobTitle"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[JobTitle]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split.Outputs[Emp_Sales]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Emp_Sales"
+                  synchronousInputId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[JobTitle]} == "Sales Representative"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">JobTitle == "Sales Representative"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split.Outputs[Emp_not_Sales]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Emp_not_Sales"
+                  synchronousInputId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[JobTitle]} != "Sales Representative"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">JobTitle != "Sales Representative"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_not_Sales"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination_Emp_not_Sales"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_not_Sales.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_not_Sales.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_not_Sales.Inputs[Flat File Destination Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_not_Sales.Inputs[Flat File Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Outputs[Sort Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_not_Sales.Inputs[Flat File Destination Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_not_Sales.Inputs[Flat File Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Outputs[Sort Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_not_Sales.Inputs[Flat File Destination Input].Columns[EmailAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EmailAddress"
+                      externalMetadataColumnId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_not_Sales.Inputs[Flat File Destination Input].ExternalColumns[EmailAddress]"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Outputs[Sort Output].Columns[EmailAddress]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_not_Sales.Inputs[Flat File Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_not_Sales.Inputs[Flat File Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_not_Sales.Inputs[Flat File Destination Input].ExternalColumns[EmailAddress]"
+                      dataType="wstr"
+                      length="50"
+                      name="EmailAddress" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_Sales"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination_Emp_Sales"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_Sales.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_Sales.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_Sales.Inputs[Flat File Destination Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_Sales.Inputs[Flat File Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Outputs[Sort Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_Sales.Inputs[Flat File Destination Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_Sales.Inputs[Flat File Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Outputs[Sort Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_Sales.Inputs[Flat File Destination Input].Columns[EmailAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EmailAddress"
+                      externalMetadataColumnId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_Sales.Inputs[Flat File Destination Input].ExternalColumns[EmailAddress]"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Outputs[Sort Output].Columns[EmailAddress]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_Sales.Inputs[Flat File Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_Sales.Inputs[Flat File Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_Sales.Inputs[Flat File Destination Input].ExternalColumns[EmailAddress]"
+                      dataType="wstr"
+                      length="50"
+                      name="EmailAddress" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Inputs[Merge Join Left Input].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Outputs[Sort Output].Columns[BusinessEntityID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Inputs[Merge Join Left Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Outputs[Sort Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Inputs[Merge Join Left Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Outputs[Sort Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Inputs[Merge Join Left Input].Columns[JobTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="JobTitle"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Outputs[Sort Output].Columns[JobTitle]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Inputs[Merge Join Right Input].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmailAddressesAW.Outputs[Sort Output].Columns[BusinessEntityID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Inputs[Merge Join Right Input].Columns[EmailAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EmailAddress"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmailAddressesAW.Outputs[Sort Output].Columns[EmailAddress]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output]"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[FirstName]"
+                      name="FirstName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Inputs[Merge Join Left Input].Columns[FirstName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[LastName]"
+                      name="LastName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Inputs[Merge Join Left Input].Columns[LastName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[EmailAddress]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[EmailAddress]"
+                      name="EmailAddress">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Inputs[Merge Join Right Input].Columns[EmailAddress]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[JobTitle]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[JobTitle]"
+                      name="JobTitle">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Inputs[Merge Join Left Input].Columns[JobTitle]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source_EmailAddressesAW"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[EmailAddressesAW]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[VERA\SQLEXPRESS.HumanResources]"
+                  connectionManagerRefId="Package.ConnectionManagers[VERA\SQLEXPRESS.HumanResources]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output].Columns[EmailAddressId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output].ExternalColumns[EmailAddressId]"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output].Columns[EmailAddressId]"
+                      name="EmailAddressId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output].Columns[EmailAddress]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output].ExternalColumns[EmailAddress]"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output].Columns[EmailAddress]"
+                      name="EmailAddress"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output].ExternalColumns[EmailAddressId]"
+                      dataType="i4"
+                      name="EmailAddressId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output].ExternalColumns[EmailAddress]"
+                      dataType="wstr"
+                      length="50"
+                      name="EmailAddress" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Error Output].Columns[EmailAddressId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Error Output].Columns[EmailAddressId]"
+                      name="EmailAddressId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Error Output].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Error Output].Columns[BusinessEntityID]"
+                      name="BusinessEntityID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Error Output].Columns[EmailAddress]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Error Output].Columns[EmailAddress]"
+                      name="EmailAddress" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source_EmployeesAW"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[EmployeesAW]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[VERA\SQLEXPRESS.HumanResources]"
+                  connectionManagerRefId="Package.ConnectionManagers[VERA\SQLEXPRESS.HumanResources]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].Columns[JobTitle]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].ExternalColumns[JobTitle]"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].Columns[JobTitle]"
+                      name="JobTitle"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].ExternalColumns[JobTitle]"
+                      dataType="wstr"
+                      length="50"
+                      name="JobTitle" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Error Output].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Error Output].Columns[BusinessEntityID]"
+                      name="BusinessEntityID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Error Output].Columns[JobTitle]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Error Output].Columns[JobTitle]"
+                      name="JobTitle" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort _Emp_not_Sales"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Inputs[Sort Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Inputs[Sort Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Inputs[Sort Input].Columns[EmailAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EmailAddress"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[EmailAddress]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Inputs[Sort Input].Columns[JobTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="JobTitle"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[JobTitle]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Outputs[Sort Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Outputs[Sort Output].Columns[FirstName]"
+                      name="FirstName"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[FirstName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Outputs[Sort Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Outputs[Sort Output].Columns[LastName]"
+                      name="LastName"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[LastName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Outputs[Sort Output].Columns[EmailAddress]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Outputs[Sort Output].Columns[EmailAddress]"
+                      name="EmailAddress">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[EmailAddress]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Outputs[Sort Output].Columns[JobTitle]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Outputs[Sort Output].Columns[JobTitle]"
+                      name="JobTitle">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[JobTitle]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmailAddressesAW"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort_EmailAddressesAW"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmailAddressesAW.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmailAddressesAW.Inputs[Sort Input].Columns[EmailAddressId]"
+                      cachedDataType="i4"
+                      cachedName="EmailAddressId"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output].Columns[EmailAddressId]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmailAddressesAW.Inputs[Sort Input].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output].Columns[BusinessEntityID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmailAddressesAW.Inputs[Sort Input].Columns[EmailAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EmailAddress"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output].Columns[EmailAddress]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmailAddressesAW.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmailAddressesAW.Outputs[Sort Output].Columns[EmailAddressId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmailAddressesAW.Outputs[Sort Output].Columns[EmailAddressId]"
+                      name="EmailAddressId">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output].Columns[EmailAddressId]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmailAddressesAW.Outputs[Sort Output].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmailAddressesAW.Outputs[Sort Output].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output].Columns[BusinessEntityID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmailAddressesAW.Outputs[Sort Output].Columns[EmailAddress]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmailAddressesAW.Outputs[Sort Output].Columns[EmailAddress]"
+                      name="EmailAddress">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output].Columns[EmailAddress]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort_EmployeesAW"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Inputs[Sort Input].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].Columns[BusinessEntityID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Inputs[Sort Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Inputs[Sort Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Inputs[Sort Input].Columns[JobTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="JobTitle"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].Columns[JobTitle]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Outputs[Sort Output].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Outputs[Sort Output].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].Columns[BusinessEntityID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Outputs[Sort Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Outputs[Sort Output].Columns[FirstName]"
+                      name="FirstName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].Columns[FirstName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Outputs[Sort Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Outputs[Sort Output].Columns[LastName]"
+                      name="LastName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].Columns[LastName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Outputs[Sort Output].Columns[JobTitle]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Outputs[Sort Output].Columns[JobTitle]"
+                      name="JobTitle">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output].Columns[JobTitle]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort_Emp_Sales"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Inputs[Sort Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Inputs[Sort Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Inputs[Sort Input].Columns[EmailAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EmailAddress"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[EmailAddress]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Inputs[Sort Input].Columns[JobTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="JobTitle"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[JobTitle]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Outputs[Sort Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Outputs[Sort Output].Columns[FirstName]"
+                      name="FirstName"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[FirstName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Outputs[Sort Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Outputs[Sort Output].Columns[LastName]"
+                      name="LastName"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[LastName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Outputs[Sort Output].Columns[EmailAddress]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Outputs[Sort Output].Columns[EmailAddress]"
+                      name="EmailAddress">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[EmailAddress]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Outputs[Sort Output].Columns[JobTitle]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Outputs[Sort Output].Columns[JobTitle]"
+                      name="JobTitle">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output].Columns[JobTitle]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales.Paths[Emp_not_Sales]"
+              endId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Inputs[Sort Input]"
+              name="Emp_not_Sales"
+              startId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split.Outputs[Emp_not_Sales]" />
+            <path
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales.Paths[Emp_Sales]"
+              endId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Inputs[Sort Input]"
+              name="Emp_Sales"
+              startId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split.Outputs[Emp_Sales]" />
+            <path
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales.Paths[Merge Join Output]"
+              endId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales.Paths[OLE DB Source Output1]"
+              endId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmailAddressesAW.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales.Paths[Sort Output]"
+              endId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales.Paths[Sort Output1]"
+              endId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmailAddressesAW.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales.Paths[Sort Output2]"
+              endId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_Sales.Inputs[Flat File Destination Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task_Load_EmpSales_EmpNotSales.Paths[Sort Output3]"
+              endId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_not_Sales.Inputs[Flat File Destination Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="301.6,41.6"
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales"
+          TopLeft="161.666660242611,78.8666672934426" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task_Load_EmpSales_EmpNotSales">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmployeesAW"
+          TopLeft="119.999995231629,102.266667479409" />
+        <NodeLayout
+          Size="249.6,41.6"
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW"
+          TopLeft="373.3333184984,17.3333334710863" />
+        <NodeLayout
+          Size="226.4,41.6"
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW"
+          TopLeft="38.3333318101036,18.2000001446406" />
+        <NodeLayout
+          Size="195.2,41.6"
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_EmailAddressesAW"
+          TopLeft="346.666652891372,101.400000805855" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Conditional Split"
+          TopLeft="239.999990463258,271.266668822501" />
+        <EdgeLayout
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales.Paths[OLE DB Source Output1]"
+          TopLeft="498.1333184984,58.9333334710863">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-53.8666656070288,42.4666673347686"
+              Start="0,0"
+              End="-53.8666656070288,34.9666673347686">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2333336673843" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2333336673843"
+                    Point2="0,21.2333336673843"
+                    Point3="-4,21.2333336673843" />
+                  <mssgle:LineSegment
+                    End="-49.8666656070288,21.2333336673843" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-49.8666656070288,21.2333336673843"
+                    Point2="-53.8666656070288,21.2333336673843"
+                    Point3="-53.8666656070288,25.2333336673843" />
+                  <mssgle:LineSegment
+                    End="-53.8666656070288,34.9666673347686" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-54.4728054597644,26.2333336673843,55.0789453125,11.228515625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales.Paths[OLE DB Source Output]"
+          TopLeft="151.533331810104,59.8000001446406">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.0666634215254,42.4666673347684"
+              Start="0,0"
+              End="54.0666634215254,34.9666673347684">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2333336673842" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2333336673842"
+                    Point2="0,21.2333336673842"
+                    Point3="4,21.2333336673842" />
+                  <mssgle:LineSegment
+                    End="50.0666634215254,21.2333336673842" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.0666634215254,21.2333336673842"
+                    Point2="54.0666634215254,21.2333336673842"
+                    Point3="54.0666634215254,25.2333336673842" />
+                  <mssgle:LineSegment
+                    End="54.0666634215254,34.9666673347684" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="6.18321452326269,26.2333336673842,41.700234375,9.5732421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Merge Join"
+          TopLeft="242.499990363916,185.333334297604" />
+        <EdgeLayout
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales.Paths[Sort Output]"
+          TopLeft="205.599995231629,143.866667479409">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="101.699995132287,41.4666668181951"
+              Start="0,0"
+              End="101.699995132287,33.9666668181951">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.7333334090975" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.7333334090975"
+                    Point2="0,20.7333334090975"
+                    Point3="4,20.7333334090975" />
+                  <mssgle:LineSegment
+                    End="97.6999951322872,20.7333334090975" />
+                  <mssgle:CubicBezierSegment
+                    Point1="97.6999951322872,20.7333334090975"
+                    Point2="101.699995132287,20.7333334090975"
+                    Point3="101.699995132287,24.7333334090975" />
+                  <mssgle:LineSegment
+                    End="101.699995132287,33.9666668181951" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="29.9998803786436,25.7333334090975,41.700234375,9.5732421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales.Paths[Sort Output1]"
+          TopLeft="444.266652891372,143.000000805855">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-116.699995860789,42.3333334917491"
+              Start="0,0"
+              End="-116.699995860789,34.8333334917491">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.0902439963293" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.0902439963293"
+                    Point2="0,25.0902439963293"
+                    Point3="-4,25.0902439963293" />
+                  <mssgle:LineSegment
+                    End="-112.699995860789,25.0902439963293" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-112.699995860789,25.0902439963293"
+                    Point2="-116.699995860789,25.0902439963293"
+                    Point3="-116.699995860789,29.0902439963293" />
+                  <mssgle:LineSegment
+                    End="-116.699995860789,34.8333334917491" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-85.8894705866446,30.0902439963293,55.0789453125,11.228515625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales.Paths[Merge Join Output]"
+          TopLeft="307.299990363916,226.933334297604">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.50000009934143,44.3333345248965"
+              Start="0,0"
+              End="9.50000009934143,36.8333345248965">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1666672624482" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.1666672624482"
+                    Point2="0,22.1666672624482"
+                    Point3="4,22.1666672624482" />
+                  <mssgle:LineSegment
+                    End="5.50000009934143,22.1666672624482" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.50000009934143,22.1666672624482"
+                    Point2="9.50000009934143,22.1666672624482"
+                    Point3="9.50000009934143,26.1666672624482" />
+                  <mssgle:LineSegment
+                    End="9.50000009934143,36.8333345248965" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.1001171378293,27.1666672624482,41.700234375,9.5732421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort_Emp_Sales"
+          TopLeft="82.4999967217447,341.333335537381" />
+        <EdgeLayout
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales.Paths[Emp_Sales]"
+          TopLeft="292.533323796591,312.866668822501">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-131.633327074846,28.4666667148801"
+              Start="0,0"
+              End="-131.633327074846,20.9666667148801">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.56274916047706" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.56274916047706"
+                    Point2="0,11.5627491604771"
+                    Point3="-4,11.5627491604771" />
+                  <mssgle:LineSegment
+                    End="-127.633327074846,11.5627491604771" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-127.633327074846,11.5627491604771"
+                    Point2="-131.633327074846,11.5627491604771"
+                    Point3="-131.633327074846,15.5627491604771" />
+                  <mssgle:LineSegment
+                    End="-131.633327074846,20.9666667148801" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-112.973401818673,16.5627491604771,94.3134765625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="229.6,41.6"
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_Sales"
+          TopLeft="34.999998609225,421.866669587029" />
+        <EdgeLayout
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales.Paths[Sort Output2]"
+          TopLeft="160.899996721745,382.933335537381">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-11.0999981125197,38.9333340496487"
+              Start="0,0"
+              End="-11.0999981125197,31.4333340496487">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.4666670248244" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.4666670248244"
+                    Point2="0,19.4666670248244"
+                    Point3="-4,19.4666670248244" />
+                  <mssgle:LineSegment
+                    End="-7.09999811251973,19.4666670248244" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7.09999811251973,19.4666670248244"
+                    Point2="-11.0999981125197,19.4666670248244"
+                    Point3="-11.0999981125197,23.4666670248244" />
+                  <mssgle:LineSegment
+                    End="-11.0999981125197,31.4333340496487" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.3844717125099,24.4666670248244,35.6689453125,9.4462890625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Sort _Emp_not_Sales"
+          TopLeft="387.499984602134,353.200002272924" />
+        <EdgeLayout
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales.Paths[Emp_not_Sales]"
+          TopLeft="341.066657129924,312.866668822501">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="136.03332747221,40.3333334504233"
+              Start="0,0"
+              End="136.03332747221,32.8333334504233">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.382817916976" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.382817916976"
+                    Point2="0,16.382817916976"
+                    Point3="4,16.382817916976" />
+                  <mssgle:LineSegment
+                    End="132.03332747221,16.382817916976" />
+                  <mssgle:CubicBezierSegment
+                    Point1="132.03332747221,16.382817916976"
+                    Point2="136.03332747221,16.382817916976"
+                    Point3="136.03332747221,20.382817916976" />
+                  <mssgle:LineSegment
+                    End="136.03332747221,32.8333334504233" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="8.22492545485484,21.382817916976,119.5834765625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="249.6,41.6"
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales\Flat File Destination_Emp_not_Sales"
+          TopLeft="314.999987483025,422.133335454729" />
+        <EdgeLayout
+          Id="Package\Data Flow Task_Load_EmpSales_EmpNotSales.Paths[Sort Output3]"
+          TopLeft="477.099984602134,394.800002272924">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-37.2999971191086,27.333333181805"
+              Start="0,0"
+              End="-37.2999971191086,19.833333181805">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.66666659090248" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.66666659090248"
+                    Point2="0,13.6666665909025"
+                    Point3="-4,13.6666665909025" />
+                  <mssgle:LineSegment
+                    End="-33.2999971191086,13.6666665909025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-33.2999971191086,13.6666665909025"
+                    Point2="-37.2999971191086,13.6666665909025"
+                    Point3="-37.2999971191086,17.6666665909025" />
+                  <mssgle:LineSegment
+                    End="-37.2999971191086,19.833333181805" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-39.5001157470543,18.6666665909025,41.700234375,9.5732421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmailAddressesAW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task_Load_EmpSales_EmpNotSales\OLE DB Source_EmployeesAW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
